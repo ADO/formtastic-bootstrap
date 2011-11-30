@@ -1,6 +1,6 @@
 module FormtasticBootstrap
   module Inputs
-    class SelectInput < Formtastic::Inputs::TimeZoneInput
+    class TimeZoneInput < Formtastic::Inputs::TimeZoneInput
       include Base
 
       def to_html
