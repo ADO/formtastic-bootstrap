@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "formtastic-bootstrap"
-  s.version = "1.0.1"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Matthew Bellantoni"]
-  s.date = "2011-11-11"
+  s.date = "2012-02-05"
   s.description = "Formtastic form builder to generate Twitter Bootstrap-friendly markup."
   s.email = "mjbellantoni@yahoo.com"
   s.extra_rdoc_files = [
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "formtastic-bootstrap.gemspec",
     "lib/action_view/helpers/text_field_date_helper.rb",
     "lib/formtastic-bootstrap.rb",
+    "lib/formtastic-bootstrap/engine.rb",
     "lib/formtastic-bootstrap/form_builder.rb",
     "lib/formtastic-bootstrap/helpers.rb",
     "lib/formtastic-bootstrap/helpers/buttons_helper.rb",
@@ -61,9 +62,11 @@ Gem::Specification.new do |s|
     "lib/formtastic-bootstrap/inputs/string_input.rb",
     "lib/formtastic-bootstrap/inputs/text_input.rb",
     "lib/formtastic-bootstrap/inputs/time_input.rb",
+    "lib/formtastic-bootstrap/inputs/time_zone_input.rb",
     "lib/formtastic-bootstrap/inputs/url_input.rb",
     "spec/builder/errors_spec.rb",
     "spec/builder/semantic_fields_for_spec.rb",
+    "spec/helpers/buttons_helper_spec.rb",
     "spec/helpers/input_helper_spec.rb",
     "spec/helpers/inputs_helper_spec.rb",
     "spec/inputs/boolean_input_spec.rb",
@@ -83,11 +86,13 @@ Gem::Specification.new do |s|
     "spec/inputs/string_input_spec.rb",
     "spec/inputs/text_input_spec.rb",
     "spec/inputs/time_input_spec.rb",
+    "spec/inputs/time_zone_input_spec.rb",
     "spec/inputs/url_input_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/custom_macros.rb",
     "spec/support/depracation.rb",
-    "spec/support/formtastic_spec_helper.rb"
+    "spec/support/formtastic_spec_helper.rb",
+    "vendor/assets/stylesheets/formtastic-bootstrap.css"
   ]
   s.homepage = "http://github.com/mjbellantoni/formtastic-bootstrap"
   s.licenses = ["MIT"]
@@ -100,7 +105,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<formtastic>, [">= 0"])
-      s.add_runtime_dependency(%q<rails>, ["~> 3.1.0"])
+      s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -108,7 +113,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rspec_tag_matchers>, [">= 0"])
     else
       s.add_dependency(%q<formtastic>, [">= 0"])
-      s.add_dependency(%q<rails>, ["~> 3.1.0"])
+      s.add_dependency(%q<rails>, [">= 3.1.0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -117,7 +122,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<formtastic>, [">= 0"])
-    s.add_dependency(%q<rails>, ["~> 3.1.0"])
+    s.add_dependency(%q<rails>, [">= 3.1.0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])

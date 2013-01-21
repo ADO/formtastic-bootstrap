@@ -24,10 +24,15 @@ And install it with <tt>bundle install</tt>.
 
 #### Configuration
 
-You will then need to add the following line to your Formtastic initialization file:
+Add the following line to your Formtastic initialization file:
 
     # config/initializers/formtastic.rb
     Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
+
+Add the following line to the top of your <tt>application.css</tt> file:
+
+    # app/assets/stylesheets/application.css
+    *= require formtastic-bootstrap
 
 Make sure you've already downloaded and installed Formtastic!
 
@@ -86,7 +91,7 @@ made to generate the HTML expected by Bootstrap while still generating the rich 
         </div>
       </fieldset>
       <div class="actions">
-        <input class="btn create" name="commit" type="submit" value="Create Post" />
+        <input class="btn create commit" name="commit" type="submit" value="Create Post" />
       </div>
     </form>
 
@@ -98,8 +103,11 @@ made to generate the HTML expected by Bootstrap while still generating the rich 
   * <tt>:date</tt> et al are tagged with the <tt>stringish</tt> class.
   * Hidden fields are not generated.
 * Fieldsets are simply nested.
+* <tt>f.buttons :name</tt> is not supported.  This generates a <tt>fieldset</tt> and <tt>legend</tt> tag which will cause the wrong thing to happen in Bootstrap.
 
 Bootstrap is somewhat incomplete, and in a few cases an inference needed to be drawn to determine a course of action.  If you disagree with any of these choices, feel free to let me know.
+
+The gem also provides some "shim" CSS where Bootstrap is missing styles provided Formtastic.
 
 ### Other
 
@@ -116,17 +124,51 @@ In particular:
 
 ### What's Missing
 
-* Formtastic's <tt>:country</tt> and <tt>:time_zone</tt> have not yet been implemented.
-* Twitter Bootstrap's Date Range, Prepend Text, Prepend Checkbox and Appended Checkbox controls have not yet been implemented.
+Contributions are welcome!
 
-## Contributing to formtastic-bootstrap
+* Formtastic's <tt>:country</tt> has not yet been implemented.
+* Twitter Bootstrap's Date Range, Prepend Checkbox and Appended Checkbox controls have not yet been implemented.
+
+## Usage
+
+In general, the usage should be identical to Formtastic's.  Some changes have been introduced in order to support Bootstrap-specific controls.
+
+### Bootstrap-specific Controls
+
+#### Prepended Text
+To create a Prepended Text field, use the ```:prepend``` option.  This works on any text field input type, like ```:url```, ```:search```, and of course ```:string```
+
+    <%= semantic_form_for @user do |f| %>
+      <%= f.inputs do %>
+        <%= f.input :handle, :prepend => '@' %>
+      <% end %>
+    <% end %>
+
+## Contributing
  
+### Contributors
+
+A big thank you [to all contributors](https://github.com/mjbellantoni/formtastic-bootstrap/contributors)!
+
+### Submitting Issues
+
+If you're filing a bug, thank you!  Secondly, in the report please include:
+
+* The version of Formtastic you're using.
+* The version of Twitter Bootstrap you're using.
+* The code for your form.
+* Anything else you think will help!
+
+### Source Contributions
+
+Source contributions are very welcome!  Most of the recent work on this package has been done by the community.
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
 * Start a feature/bugfix branch
 * Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Make sure to add tests for it and to run the test suite.  **If you don't have tests, I won't accept the pull.**  If you need help with this, please ask.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
 
@@ -138,13 +180,11 @@ In particular:
    * :time_zone
  * Fancy Bootstrap Fields
    * Date Range
-   * Prepend Text
    * Prepend Checkbox
    * Appended Checkbox
 * :datetime, :date, :time
  * As rich functionally as their Rails counterparts.
  * Extract into a standalone gem.
-* Disabled inputs
 * Tests
  * Refactor
  * More -- See if I'm making sure the Bootstrap classes are present.
