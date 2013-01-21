@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gemspec
 
 gem 'formtastic', '2.0.2'
-gem 'country-select', :git => 'https://github.com/ADO/country-select.git'
+gem 'countries', :require => 'iso3166'
 
 group :development, :test do
   gem "rspec"
