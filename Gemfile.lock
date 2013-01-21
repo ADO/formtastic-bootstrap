@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/ADO/country-select.git
-  revision: ed9082f39afaf723cbe5a60b610688e6e5b9dfd3
+  revision: e53842c403bafdb98e4464a002e51d73abbd4e8d
   specs:
-    country-select (1.1.7)
+    country-select (1.1.8)
 
 PATH
   remote: .
   specs:
-    formtastic-bootstrap (1.2.9)
+    formtastic-bootstrap (1.3.0)
       formtastic
       rails (>= 3.1.0)
 
