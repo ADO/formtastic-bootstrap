@@ -5,7 +5,7 @@ module FormtasticBootstrap
 
       def to_html
         generic_input_wrapping do
-          builder.country_select(method, priority_countries, input_options, input_html_options.html_safe)
+          builder.country_select(method, priority_countries, input_options, input_html_options)
         end
       end
 
