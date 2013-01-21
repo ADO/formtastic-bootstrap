@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gemspec
 
-gem 'formtastic'
+gem 'formtastic', '2.0.2'
 
 group :development, :test do
   gem "rspec"
