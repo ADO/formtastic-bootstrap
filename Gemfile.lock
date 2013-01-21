@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/ADO/country-select.git
-  revision: 3483d868ad019f6550045e4fbdf6616da4fa09b3
+  revision: 00fb44ecd1c4ef7034b7dda2bcf3029bbc7efefb
   specs:
-    country-select (1.1.4)
+    country-select (1.1.5)
 
 PATH
   remote: .
